@@ -64,10 +64,10 @@ export PATH=$PATH:/opt/dart-sass
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
-alias la='exa -la --icons --git --sort time'
+alias la='exa -la --icons --git --group-directories-first --sort time'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
-alias ls='exa -l --icons --git --sort time'
+alias ls='exa -l --icons --git --group-directories-first --sort time'
 alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
