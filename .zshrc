@@ -61,6 +61,8 @@ PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/
 # exports
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/opt/dart-sass
+export PATH=$PATH:/home/mavix/.local/share/fnm
+eval "$(fnm env --use-on-cd)"
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
