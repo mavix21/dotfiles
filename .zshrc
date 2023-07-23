@@ -1,11 +1,6 @@
 # Fix the Java Problem
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
@@ -49,10 +44,6 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source /home/mavix/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Manual configuration
 
@@ -61,8 +52,6 @@ PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/
 # exports
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/opt/dart-sass
-export PATH=$PATH:/home/mavix/.local/share/fnm
-eval "$(fnm env --use-on-cd)"
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
@@ -159,5 +148,4 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
-# Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
-(( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
+eval "$(starship init zsh)"
