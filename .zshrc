@@ -4,8 +4,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
-prompt adam1
-# eval "$(oh-my-posh init zsh --config ~/.takuya_modded.omp.json)"
 
 setopt histignorealldups sharehistory
 
