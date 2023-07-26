@@ -5,6 +5,14 @@ end
 
 bufferline.setup({
 	options = {
-		separator_style = "thin",
+		mode = "tabs",
+		separator_style = "slant",
+		always_show_bufferline = false,
+		show_buffer_close_icons = false,
+		show_close_icon = false,
+		color_icons = true,
 	},
 })
+
+vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", {})
+vim.api.nvim_set_keymap("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", {})
