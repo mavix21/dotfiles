@@ -50,6 +50,7 @@ PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/
 # exports
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/opt/dart-sass
+export SHELL=/usr/bin/zsh
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
