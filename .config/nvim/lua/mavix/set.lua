@@ -50,3 +50,19 @@ set.backspace = "indent,eol,start"
 set.iskeyword:append("-")
 
 set.hidden = true
+
+vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+vim.opt.wildignore:append({ "*/node_modules/*" })
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+	pattern = "*",
+	command = "set nopaste",
+})
+
+-- Add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
