@@ -55,6 +55,7 @@ return packer.startup(function(use)
 
 	-- essential plugins
 	use("tpope/vim-surround")
+	use("numToStr/Comment.nvim")
 
 	use("vim-scripts/ReplaceWithRegister")
 
@@ -80,7 +81,7 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
 	use({ "glepnir/lspsaga.nvim", branch = "main" })
-	use("onsails/lspkind.nvim")
+	use("onsails/lspkind.nvim") -- vscode-like pictograms
 	use("joe-re/sql-language-server")
 
 	-- formatting & linting
