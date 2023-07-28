@@ -76,7 +76,7 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<Tab>"] = cmp.mapping(function(fallback)
+		["<CR>"] = cmp.mapping(function(fallback)
 			-- confirm with tab, if no entry selected, will confirm the first item
 			if cmp.visible() then
 				local entry = cmp.get_selected_entry()
@@ -121,10 +121,10 @@ cmp.setup({
 	},
 })
 
--- Customization for Pmenu
+-- Highlight groups for Pmenu and Cmp
 vim.api.nvim_set_hl(0, "CmpDoc", { bg = "#202328" })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#98BE65", fg = "#282c34", bold = true })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = "#DFDFDF", bg = "#282c34" })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#DFDFDF", bg = "#202328" })
 
 vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#DFDFDF", bg = "NONE", strikethrough = true })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#46D9FF", bg = "NONE", bold = true })
