@@ -5,6 +5,7 @@ if not autopairs_setup then
 end
 
 autopairs.setup({
+	disable_filetype = { "TelescopePrompt", "vim" },
 	check_ts = true,
 	ts_config = {
 		lua = { "string" }, -- don't add pairs in lua string treesitter nodes
