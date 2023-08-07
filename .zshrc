@@ -8,10 +8,10 @@ promptinit
 setopt histignorealldups sharehistory
 
 # fzf default options
-export FZF_DEFAULT_OPTS='--color=16,bg:-1,hl:4,hl+:4,fg:-1,fg+:-1,gutter:-1,pointer:-1,marker:-1,prompt:1 --height 80% --reverse --color border:2 --border=sharp --prompt="➤  " --pointer="➤ " --marker="➤ "'
+export FZF_DEFAULT_OPTS='--color=16,bg:-1,hl:4,hl+:4,fg:-1,fg+:-1,gutter:-1,pointer:-1,marker:-1,prompt:1 --height 80% --reverse --color border:4 --border=sharp --prompt="➤  " --pointer="➤ " --marker="➤ "'
 
 # bat theme
-export BAT_THEME=Enki-Tokyo-Night
+export BAT_THEME=OneHalfDark
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
