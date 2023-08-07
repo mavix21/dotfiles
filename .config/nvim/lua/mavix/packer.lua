@@ -38,7 +38,23 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
-	use("NTBBloodbath/doom-one.nvim")
+	use({
+		"NTBBloodbath/doom-one.nvim",
+		setup = function()
+			vim.g.doom_one_cursor_coloring = true
+			vim.g.doom_one_diagnostics_text_color = true
+			vim.g.doom_one_plugin_neorg = true
+			vim.g.doom_one_plugin_telescope = true
+			vim.g.doom_one_plugin_lspsaga = true
+		end,
+	})
+
+	use({
+		"navarasu/onedark.nvim",
+		setup = {
+			style = "darker",
+		},
+	})
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -126,6 +142,15 @@ return packer.startup(function(use)
 
 	-- notifications
 	use("rcarriga/nvim-notify")
+
+	-- documentation generator
+	use({
+		"kkoomen/vim-doge",
+		run = ":call doge#install()",
+	})
+
+	-- java
+	use("mfussenegger/nvim-jdtls")
 
 	if packer_bootstrap then
 		require("packer").sync()

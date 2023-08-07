@@ -20,9 +20,9 @@ set.incsearch = true
 set.termguicolors = true
 set.cursorline = true
 set.winblend = 0
-set.wildoptions = "pum"
-set.pumblend = 5
-set.background = "dark"
+--set.wildoptions = "pum"
+--set.pumblend = 5
+--set.background = "dark"
 
 -- highlight yanked text for 200ms using the "visual" highlight group
 vim.cmd([[

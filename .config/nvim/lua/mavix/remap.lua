@@ -6,6 +6,15 @@ remap.set("n", "<leader>pv", vim.cmd.Ex)
 remap.set("v", "J", ":m '>+1<CR>gv=gv")
 remap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+remap.set("i", "<C-l>", "<right>")
+remap.set("i", "<C-h>", "<left>")
+
+-- increment
+remap.set("n", "<C-i>", "<C-a>")
+
+-- select all
+remap.set("n", "<C-a>", "gg<S-v>G", { desc = "select all" })
+
 remap.set("n", "J", "mzJ`z")
 remap.set("n", "<C-d>", "<C-d>zz")
 remap.set("n", "<C-u>", "<C-u>zz")
@@ -35,23 +44,57 @@ remap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 remap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 remap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-remap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+remap.set(
+	"n",
+	"<leader>r",
+	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+	{ desc = "match word cursor is currently on" }
+)
 
 -- chmod +x
-remap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }, { desc = "Give file execute permissions" })
+remap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Give a file execute permissions" }, { silent = true })
 
-remap.set("n", "<leader>to", ":tabnew<CR>", { desc = "Open a new tab" }) -- open new tab
-remap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-remap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
-remap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
+-- split window management
+remap.set("n", "ss", ":vsplit<Return>", { desc = "split window vertical" }, { silent = true })
+remap.set("n", "sv", ":split<Return>", { desc = "split window horizontal" }, { silent = true })
+remap.set("n", "sx", "<C-w>c", { desc = "close split" })
+remap.set("n", "sm", ":MaximizerToggle<CR>", { desc = "maximize split " })
+remap.set("n", "sw", "<C-w>w", { desc = "traverse splits" })
+remap.set("n", "sj", "<C-w>j", { desc = "move to window below" })
+remap.set("n", "sk", "<C-w>k", { desc = "move to window below" })
+remap.set("n", "sh", "<C-w>h", { desc = "move to window below" })
+remap.set("n", "sl", "<C-w>l", { desc = "move to window below" })
+remap.set("n", "so", "<C-w>o", { desc = "close all other windows" })
+
+-- resize window
+remap.set("n", "s<left>", "<C-w>>")
+remap.set("n", "s<right>", "<C-w><")
+remap.set("n", "s<up>", "<C-w>+")
+remap.set("n", "s<down>", "<C-w>-")
+
+-- tabs management
+remap.set("n", "te", ":tabedit<Return>", { desc = "open a new tab" }, { silent = true })
+remap.set("n", "tx", ":tabclose<Return>", { desc = "close tab" }, { silent = true })
 
 -- plugin keymaps
-
--- vim-maximizer
-remap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- nvim-tree
 remap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- Remove all console logs (javascript)
 remap.set("n", "<leader>xc", ":g/console.lo/d<CR>", { desc = "Remove all console.log" })
+
+-- comment
+remap.set("n", "<C-k>c", function()
+	require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment" })
+
+remap.set(
+	"v",
+	"<C-k>c",
+	"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+	{ desc = "Toggle comment" }
+)
+
+-- lspsaga
+remap.set("n", "<C-ñ>", "<cmd>Lspsaga term_toggle<CR>")
