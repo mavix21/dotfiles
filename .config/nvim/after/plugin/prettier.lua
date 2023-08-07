@@ -4,6 +4,14 @@ if not prettier_status then
 end
 
 prettier.setup({
+	bin = "prettierd",
+	filetypes = {
+		"css",
+		"typescript",
+		"typescriptreact",
+		"json",
+		"scss",
+	},
 	cli_options = {
 		indent_size = 4,
 	},
