@@ -90,7 +90,17 @@ lspconfig["cssls"].setup({
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+	filetypes = {
+		"html",
+		"typescriptreact",
+		"javascriptreact",
+		"css",
+		"sass",
+		"scss",
+		"less",
+		"svelte",
+		"astro",
+	},
 })
 
 -- configure lua server (with special settings)
@@ -174,3 +184,15 @@ lspconfig.tsserver.setup({
 	filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
 	cmd = { "typescript-language-server", "--stdio" },
 })
+
+lspconfig.solidity_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.astro.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.tailwindcss.setup({})
