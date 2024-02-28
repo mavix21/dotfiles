@@ -10,7 +10,6 @@ $git_state\
 $git_status\
 $git_metrics\
 $hg_branch\
-$time\
 $fill\
 $docker_context\
 $package\
@@ -33,12 +32,10 @@ $gcloud\
 $env_var\
 $custom\
 $sudo\
-$cmd_duration\
 $line_break\
 $jobs\
 $battery\
 $status\
-$os\
 $container\
 $shell\
 $character"""
