@@ -152,3 +152,4 @@
     "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
   }
 ]
+
