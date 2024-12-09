@@ -25,6 +25,11 @@
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
   },
   {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "vim.active && vim.mode == 'Normal' && terminalFocus"
+  },
+  {
     "key": "ctrl+j",
     "command": "workbench.action.focusBelowGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
@@ -90,6 +95,26 @@
     "when": "inFilesPicker && inQuickOpen"
   },
   {
+    "key": "shift+l",
+    "command": "workbench.action.nextEditor",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "shift+h",
+    "command": "workbench.action.previousEditor",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
     "key": "ctrl+p",
     "command": "-extension.vim_ctrl+p",
     "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
@@ -107,12 +132,12 @@
   {
     "key": "ctrl+shift+j",
     "command": "editor.action.insertCursorBelow",
-    "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    "when": "editorTextFocus && vim.active && (vim.mode == 'Insert' || vim.mode == 'Normal)"
   },
   {
     "key": "ctrl+shift+k",
     "command": "editor.action.insertCursorAbove",
-    "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    "when": "editorTextFocus && vim.active && (vim.mode == 'Insert' || vim.mode == 'Normal)"
   },
   {
     "key": "ctrl+a",
@@ -129,8 +154,13 @@
   },
   {
     "key": "space e",
+    "command": "workbench.action.focusSideBar",
+    "when": "(editorTextFocus || filesExplorerFocus) && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "space e",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+    "when": "vim.active && vim.mode == 'Normal' && sideBarVisible"
   },
   {
     "key": "ctrl+b",
@@ -150,6 +180,21 @@
     "key": "ctrl+c",
     "command": "-extension.vim_ctrl+c",
     "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+[SemiColon]",
+    "command": "workbench.action.terminal.focus",
+    "when": "vim.active && vim.mode == 'Normal' && !terminalFocus"
+  },
+  {
+    "key": "ctrl+[SemiColon]",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "vim.active && vim.mode == 'Normal' && terminalFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "-workbench.action.terminal.focus",
+    "when": "accessibilityModeEnabled && accessibleViewOnLastLine && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewOnLastLine && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
   }
 ]
 
