@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/mavix/.zsh/completions:"* ]]; then export FPATH="/home/mavix/.zsh/completions:$FPATH"; fi
 # Fix the Java Problem
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -161,13 +163,17 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # bun completions
-[ -s "/home/mavix/.bun/_bun" ] && source "/home/mavix/.bun/_bun"
+# [ -s "/home/mavix/.bun/_bun" ] && source "/home/mavix/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+. "/home/mavix/.deno/env"
+
+# fnm
+FNM_PATH="/home/mavix/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/mavix/.local/share/fnm:$PATH"
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
